@@ -8,7 +8,7 @@ from Spider5i5j.items import RoomInfoItem
 class RoomspiderSpider(scrapy.Spider):
     name = 'roomspider'
     allowed_domains = ['bj.5i5j.com']
-    start_urls = ['http://bj.5i5j.com/']
+    # start_urls = ['http://bj.5i5j.com/']
 
     def start_requests(self):
         for page in range(1,self.settings.get('MAX_PAGE') + 1):
@@ -26,8 +26,6 @@ class RoomspiderSpider(scrapy.Spider):
             release_times = response.css('li .listX>p:nth-child(3)::text').re('.*\·\s(.*?)发布')
             rents = response.css('li .redC strong::text').extract()
             rent_catagorys = response.css('li .jia>p:nth-child(2)::text').re('出租方式：(.*)')
-            print(release_times)
-            print(rent_catagorys)
             for title,detail,location,release_time,rent,rent_catagory in zip(titles,details,locations,release_times,rents,rent_catagorys):
                 item['title'] = title
                 item['detail'] = detail

@@ -52,9 +52,9 @@ ROBOTSTXT_OBEY = False
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'Spider5i5j.middlewares.Spider5I5JDownloaderMiddleware': 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+   'Spider5i5j.middlewares.UserAgentSpiderMiddleware': 543,
+}
 
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html
@@ -64,9 +64,9 @@ ROBOTSTXT_OBEY = False
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-   'Spider5i5j.pipelines.MongoPipeline': 300,
-}
+# ITEM_PIPELINES = {
+#    'Spider5i5j.pipelines.MongoPipeline': 300,
+# }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
@@ -91,4 +91,4 @@ ITEM_PIPELINES = {
 
 MONGO_URL = 'localhost'
 MONGO_DB = '5i5j'
-MAX_PAGE = 10
+MAX_PAGE = 1
